@@ -1,0 +1,50 @@
+# Secrets — never commit API keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.yaml
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local vector stores / caches (crawled pages + captured answers)
+.citewatch_cache/
+.citewatch_kb/
+.citewatch_competitor_kb/
+*.chroma
+chroma/
+
+# Generated reports
+reports/
+
+# Keyword exports you drop in locally
+data/*.csv
+!data/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log

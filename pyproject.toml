@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "citewatch"
+version = "0.1.0"
+description = "CLI for measuring how generative models cite — or ignore — your brand versus competitors"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "Manika Malhotra" },
+]
+urls = { Homepage = "https://github.com/ManikaMalhotra/citewatch" }
+
+dependencies = [
+    # CLI + Output
+    "typer>=0.12",
+    "rich>=13",
+    "structlog>=24",
+
+    # Config + Models
+    "pydantic>=2.8",
+    "pydantic-settings>=2.0",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+
+    # Vector Store + Cache
+    "chromadb>=1.0",
+
+    # Local Embeddings
+    "ollama>=0.3",
+
+    # Model SDKs (structured output via LangChain)
+    "langchain>=0.3",
+    "langchain-anthropic>=0.3",
+    "langchain-google-genai>=2.0",
+
+    # Crawling + Parsing
+    "httpx>=0.27",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+]
+
+[project.scripts]
+citewatch = "citewatch.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/citewatch"]
